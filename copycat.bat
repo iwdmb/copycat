@@ -1,1 +1,1 @@
-python -m copycat %*
+python3 -m copycat %*
