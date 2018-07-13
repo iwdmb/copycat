@@ -69,14 +69,14 @@ class Storage(object):
         try:
             del self._reg[name]
         except:
-            print 'no reg {}'.format(name)
+            print('no reg {}'.format(name))
 
     def list(self):
         template = u"{}:{}"
         for i, v in enumerate(self._stack):
-            print template.format(i, v)
+            print(template.format(i, v))
         for i, v in self._reg.items():
-            print template.format(i, v)
+            print(template.format(i, v))
 
 def paste(name=None):
     with Storage() as storage:
@@ -118,7 +118,7 @@ if __name__ == '__main__':
         '''
 
         if paste:
-            print globals()['paste'](name)
+            print(globals()['paste'](name))
         elif delete:
             globals()['delete'](name)
         elif list:
