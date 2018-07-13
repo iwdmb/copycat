@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from distutils.core import setup
 import platform
@@ -11,17 +11,17 @@ def build_params():
       'author':'Ming',
       'author_email':'ming@alone.tw',
       'url':'https://github.com/iwdmb/copycat',
-      'py_modules':['copycat'],
+      'py_modules':['copycat3'],
 	  'license':'MIT',
       'install_requires': ['clime', 'pyclip-copycat'],
     }
     if platform.system() == 'Windows':
-        params['scripts'] = ['copycat.bat']
+        params['scripts'] = ['copycat3.bat']
     else:
-        params['scripts'] = ['copycat']
+        params['scripts'] = ['copycat3']
 
     return params
 
-setup(
+setup (
     **build_params()
 )
