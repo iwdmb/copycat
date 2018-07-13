@@ -27,9 +27,17 @@ This is a clipboard tool for command-line heavy users, especially the users who 
 
 
 ## Installation
+
+### Use pip3
+
+1. pip3 install copycat-clipboard3
+2. Enjoy it : )
+
+### Manual
+
 1. Clone this project into your computer or download it directly.
-`git clone https://github.com/georgefs/copycat.git`
-2. `python install setup.py install`
+`git clone https://github.com/iwdmb/copycat`
+2. `python3 install setup.py install`
 3. Restart your terminal, and enjoy.
 
 ## Usage
