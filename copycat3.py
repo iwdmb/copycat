@@ -84,14 +84,14 @@ def paste(name=None):
             data = clipboard.paste() or storage.get()
         else:
             data = storage.get(name)
-        data = smart_str(data)
-        clipboard.copy(data)
+        #data = smart_str(data)
+        clipboard.copy(data.encode('utf-8'))
         return data
 
 def copy(value=None, name=None):
     value = value or not sys.stdin.isatty() and sys.stdin.read()
 
-    value = smart_str(value)
+    #value = smart_str(value)
     with Storage() as storage:
         storage.save(value, name=name)
         if not name:
