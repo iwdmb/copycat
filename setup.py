@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from distutils.core import setup
+#from distutils.core import setup
 import platform
+import setuptools
 
 def build_params():
     params = {
@@ -22,6 +23,6 @@ def build_params():
 
     return params
 
-setup (
+setuptools.setup (
     **build_params()
 )
