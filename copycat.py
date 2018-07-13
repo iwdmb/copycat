@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 __all__ = ['copy', 'paste', 'list', 'delete']
 import clipboard
 import os
 import json
-
 
 DEFAULT_COPYCAT_STORE = os.path.join(os.path.expanduser("~"), '.copycat_store')
 DEFAULT_CONFIG_FILE = os.path.join(os.path.expanduser("~"), '.copycat')
@@ -17,14 +16,14 @@ def readfile(path):
         return None
 
 def smart_str(s, encoding='utf-8', errors='strict'):
-    if not isinstance(s, basestring):
-        s = str(s)
-    elif isinstance(s, unicode):
-        return s.encode(encoding, errors)
-    elif s and encoding != 'utf-8':
-        return s.decode('utf-8', errors).encode(encoding, errors)
-    else:
-        return s
+    #if not isinstance(s, basestring):
+    #    s = str(s)
+    #elif isinstance(s, unicode):
+    #    return s.encode(encoding, errors)
+    #elif s and encoding != 'utf-8':
+    #    return s.decode('utf-8', errors).encode(encoding, errors)
+    #else:
+    return s
 
 SOURCE = readfile(DEFAULT_CONFIG_FILE) or "{}"
 CONFIG = json.loads(SOURCE)
@@ -33,7 +32,7 @@ COPY_STORE = CONFIG.get('COPY_STORE') or DEFAULT_COPYCAT_STORE
 class Storage(object):
     stack_len = 10
 
-    def __init__(self, path=COPY_STORE):    
+    def __init__(self, path=COPY_STORE):
         source = readfile(path) or "{}"
         data = json.loads(source)
         self._reg = data.get('reg', {})
@@ -79,7 +78,6 @@ class Storage(object):
         for i, v in self._reg.items():
             print template.format(i, v)
 
-
 def paste(name=None):
     with Storage() as storage:
         if not name:
@@ -89,7 +87,7 @@ def paste(name=None):
         data = smart_str(data)
         clipboard.copy(data)
         return data
-    
+
 def copy(value=None, name=None):
     value = value or not sys.stdin.isatty() and sys.stdin.read()
 
@@ -97,7 +95,7 @@ def copy(value=None, name=None):
     with Storage() as storage:
         storage.save(value, name=name)
         if not name:
-            clipboard.copy(value)
+            clipboard.copy(value.encode('utf-8'))
 
 def delete(name):
     with Storage() as storage:
@@ -106,7 +104,6 @@ def delete(name):
 def view():
     with Storage() as storage:
         storage.list()
-
 
 if __name__ == '__main__':
     __all__ = ['copycat']
@@ -119,7 +116,7 @@ if __name__ == '__main__':
         -l, --list
         -n=<str>, --name=<str>
         '''
-        
+
         if paste:
             print globals()['paste'](name)
         elif delete:
