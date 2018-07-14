@@ -85,7 +85,7 @@ def paste(name=None):
         else:
             data = storage.get(name)
         #data = smart_str(data)
-        clipboard.copy(data.encode('utf-8'))
+        clipboard.copy(data)
         return data
 
 def copy(value=None, name=None):
