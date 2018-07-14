@@ -7,7 +7,7 @@ import setuptools
 def build_params():
     params = {
       'name':'copycat-clipboard3',
-      'version':'1.0',
+      'version':'1.1',
       'description':'easy way let use clip on command line with system clip (support python 3)',
       'author':'Ming',
       'author_email':'ming@alone.tw',
