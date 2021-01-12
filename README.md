@@ -42,7 +42,7 @@ This is a clipboard tool for command-line heavy users, especially the users who 
 
 ## Usage
 
-###command line support
+### command line support
 * `copycat3 "some thing"` -- copy into clipboard
 * `copycat3 --paste` or `copycat -p` -- paste from clipboard
 * `copycat3 --name=name "some thing"` or `copycat -n name "some thing"` and `copycat --paste --name=name` or `copycat -pn name` -- copy to named clipboards
@@ -50,7 +50,7 @@ This is a clipboard tool for command-line heavy users, especially the users who 
 * `copycat3 --list` or `copycat -l` -- list avaliable clipboards
 * `copycat3 --delete --name name` or `copycat -dn name` -- remove specified clipboard
 
-###python method
+### python method
 
 ```python
 import copycat3 as copycat
@@ -58,7 +58,7 @@ copycat.copy(value='value', name='name')
 copycat.paste(name='name')
 ```
 
-###command line advance
+### command line advance
 ```bash
 copycat3 ls
 cmd=`copycat3 -p`
